@@ -1,0 +1,12 @@
+[app/ui]
+version = 7.2.0
+modtime = 1539801676.705012000
+
+[app/launcher]
+version = 7.2.0
+modtime = 1539801676.709015100
+
+[inputs/hl7%3A%2F%2Ftest]
+owner = admin
+version = 7.2.0
+modtime = 1540481495.334739900

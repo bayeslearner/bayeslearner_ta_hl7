@@ -1,0 +1,9 @@
+MSH|^~\&|EPIC|MGH||MGH|20150324122215|OHEDIREGISG|ADT^A06|725327|T|2.3|||||||||
+EVN|A06|20150324122215||EXTMRG|^INTERFACE^REG^IN STAR GE CENTRICITY^^^^^OHSA^^^^^||
+PID|1||3100024013^^^EPI^MR||DAUGHTER^DARLING^T||19920104|F|DAUGHTER^DARLING^^~WALKER^^^|Caucasian|4251 BENZLER ROAD^^MARION^OH^43302^US^P^^MARION|MARION|(740)389-6084^P^PH^^^740^3896084||ENG|MARRIED|BAPTIST|6100215380||||NOT HISPANIC||||||||N||
+PD1||||||||||||||||||
+PV1|1|O|ED^^^MGH^^^^^^^DEPID|ER|||14570^SHAH^MAYANK^K^^^^^STARPROV^^^^STARPROV|||Cardiology||||Disch/Readm|||14570^SHAH^MAYANK^K^^^^^STARPROV^^^^STARPROV|OBSERVATION|6100215380|||||||||||||||||||||||^^^MGH^^^^^^^||20150324||||||
+PV2||||||||||||||||||||||N|||||||||||||||||||||||||||
+ZPV|||||||||||||||||||||
+ZMP|1|||||N||||^^^^|||^^^^|||||^^^^||||^^^^||Not eligible for Medicare||||^^^^|||||^^^^|0|||^^^^|||||||||||||||||||||||||||||
+T_50005_1T_50005_1{CONNID 0} {IPVERSION 4} {CLIENTIP 172.17.154.197} {CLIENTPORT 63143}
