@@ -14,7 +14,8 @@ sys.path.insert(0, path_to_mod_input_lib)
 from modular_input import Field, BooleanField, ListField, IntegerField
 
 from hl7apy.core import Message
-from hl7apy.mllp import MLLPServer
+#from hl7apy.mllp import MLLPServer
+from hl7apy.mllp2 import MLLPServer
 
 from hl7apy.mllp import AbstractErrorHandler
 from hl7apy.parser import parse_message
@@ -35,7 +36,7 @@ class ModularInput(modular_input.ModularInput):
         output = self.create_event_string(data_dict, stanza, _time, sourcetype, source, index, host,
                                           unbroken, close,
                                           encapsulate_value_in_double_quotes=encapsulate_value_in_double_quotes)
-        self.logger.info("the xml file looks like \n %s", output)
+        self.logger.debug("the xml file looks like \n %s", output)
 
         with self.lock:
             out.write(output)
@@ -241,8 +242,8 @@ class MyInput(ModularInput):
 
         while True:
             while not self._queue.empty():
-                raw, t1=self._queue.get()
-                self.logger.info("about to process this message before storing it %s", raw)
+                t0, t1=self._queue.get()
+                #self.logger.info("about to process this message before storing it %s", t0)
 
                 # raw_test= ("MSH|^~\&|EPIC|EPICADT|SMS|SMSADT|199912271408|CHARRIS|ADT^A04|1817457|D|2.5|\r" +
                 #     "PID||0493575^^^2^ID 1|454721||DOE^JOHN^^^^|DOE^JOHN^^^^|19480203|M||B|254 MYSTREET AVE^^MYTOWN^OH^44123^USA||(216)123-4567|||M|NON|400003403~1129086|999-|\r"
@@ -258,15 +259,17 @@ class MyInput(ModularInput):
                 #todo: option to de-identify the data based on default or user-supplied routines
                 #todo: option to filter out large segments
 
+
+
                 t2= ["    "*level+ (n.name or "unamed")  +"="+ hl7_util.escape_spaces(n.to_er7())+ "," for [n, level] in hl7_util.preorder(t1)]
 
                 t3="\n".join(t2)
 
-                out = t3
+                out = t0
                 self.logger.info("about to send this to splunk\n %s", out)
                 self.output_event(out, stanza, _time=calendar.timegm(time.gmtime()), sourcetype=sourcetype, host=host, index=index)
 
-            time.sleep(0.5)
+            time.sleep(0.1)
 
         # if self.needs_another_run(input_config.checkpoint_dir, stanza, interval):
         #     pass
@@ -399,7 +402,7 @@ class CatchAllHandler(AbstractErrorHandler):
         res = self.ack(msg)
         res_mllp=res.to_mllp()
 
-        self.mi.logger.info("about to send this replay to the client: \n %s", res_mllp)
+        self.mi.logger.debug("about to send this replay to the client: \n %s", res_mllp)
 
         return res_mllp
 
