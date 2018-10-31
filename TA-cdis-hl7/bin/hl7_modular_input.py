@@ -15,7 +15,7 @@ from modular_input import Field, BooleanField, ListField, IntegerField
 
 from hl7apy.core import Message
 #from hl7apy.mllp import MLLPServer
-from hl7apy.mllp2 import MLLPServer
+from mllp2 import MLLPServer
 
 from hl7apy.mllp import AbstractErrorHandler
 from hl7apy.parser import parse_message
