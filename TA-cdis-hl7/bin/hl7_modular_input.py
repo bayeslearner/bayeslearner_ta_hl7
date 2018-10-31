@@ -14,8 +14,8 @@ sys.path.insert(0, path_to_mod_input_lib)
 from modular_input import Field, BooleanField, ListField, IntegerField
 
 from hl7apy.core import Message
-#from hl7apy.mllp import MLLPServer
-from mllp2 import MLLPServer
+from hl7apy.mllp import MLLPServer
+#from mllp2 import MLLPServer
 
 from hl7apy.mllp import AbstractErrorHandler
 from hl7apy.parser import parse_message
